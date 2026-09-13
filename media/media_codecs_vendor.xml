@@ -116,6 +116,7 @@ Only the three quirks included above are recognized at this point:
 
 <MediaCodecs>
     <Settings>
+         <Include href="media_codecs_dolby_audio.xml" />
         <Domain name="telephony" enabled="true" />
         <Setting name="max-video-encoder-input-buffers" value="11" />
         <Variant name="slow-cpu" enabled="true" />
