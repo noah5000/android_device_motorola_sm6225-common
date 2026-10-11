@@ -28,6 +28,8 @@
 
 <audio_effects_conf version="2.0" xmlns="http://schemas.android.com/audio/audio_effects_conf/v2_0">
     <libraries>
+        <library name="dap_sw" path="libswdap_v3_6.so"/>
+        <library name="dap_hw" path="libhwdap_v3_6.so"/>
         <library name="bundle" path="libbundlewrapper.so"/>
         <library name="reverb" path="libreverbwrapper.so"/>
         <library name="visualizer_sw" path="libvisualizer.so"/>
