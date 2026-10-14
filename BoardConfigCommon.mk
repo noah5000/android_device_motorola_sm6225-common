@@ -107,7 +107,7 @@ TARGET_MODULE_ALIASES += \
     wlan.ko:qca_cld3_wlan.ko
 
 # Partitions
--include vendor/lineage/config/BoardConfigReservedSize.mk
+
 
 BOARD_FLASH_BLOCK_SIZE := 262144 # (BOARD_KERNEL_PAGESIZE * 64)
 BOARD_USES_METADATA_PARTITION := true
