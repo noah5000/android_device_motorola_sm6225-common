@@ -3,8 +3,13 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-# Add common definitions for Qualcomm
-$(call inherit-product, hardware/qcom-caf/common/common.mk)
+# Platform
+#
+# TARGET_BOARD_PLATFORM must be defined in a PRODUCT makefile: the AOSPA QTI
+# common (device/qcom/common/common.mk) reads it as a product variable and
+# errors out if it is only set in BoardConfig.
+TARGET_BOARD_PLATFORM := bengal
+
 
 # A/B
 AB_OTA_UPDATER := true
@@ -373,5 +378,30 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/WCNSS_qcom_cfg.ini \
     $(LOCAL_PATH)/wifi/wpa_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant_overlay.conf
 
+# QC common
+TARGET_COMMON_QTI_COMPONENTS := \
+    adreno \
+    alarm \
+    audio \
+    av \
+    bt \
+    charging \
+    display \
+    dsprpcd \
+    gps \
+    init \
+    keymaster \
+    media \
+    overlay \
+    perf \
+    qseecomd \
+    telephony \
+    usb \
+    vibrator \
+    wfd \
+    wlan
+
+# Get non-open-source specific aspects
+$(call inherit-product, vendor/motorola/sm6225-common/sm6225-common-vendor.mk)
 # Get non-open-source specific aspects
 $(call inherit-product, vendor/motorola/sm6225-common/sm6225-common-vendor.mk)
