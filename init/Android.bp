@@ -53,7 +53,7 @@ prebuilt_etc {
 }
 
 prebuilt_etc {
-    name: "ueventd.qcom.rc",
+    name: "ueventd.sm6225.rc",
     filename: "ueventd.rc",
     src: "ueventd.qcom.rc",
     vendor: true,
