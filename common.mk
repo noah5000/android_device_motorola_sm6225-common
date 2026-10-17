@@ -180,7 +180,7 @@ PRODUCT_PACKAGES += \
     init.qcom.rc \
     init.qcom.recovery.rc \
     init.target.rc \
-    ueventd.qcom.rc
+    ueventd.sm6225.rc
 
 # ION
 $(call soong_config_set_bool,libion,legacy_impl,true)
@@ -194,13 +194,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     vendor.lineage.health-service.default
 
-# LiveDisplay
-PRODUCT_PACKAGES += \
-    vendor.lineage.livedisplay-service.sdm \
-    vendor.lineage.livedisplay-service.sysfs
-
-$(call soong_config_set_bool,livedisplay_sdm,enable_dm,false)
-$(call soong_config_set_bool,livedisplay_sysfs,enable_se,true)
 
 # Media
 PRODUCT_PACKAGES += \
@@ -236,7 +229,6 @@ PRODUCT_PACKAGES += \
     FrameworksResProduct \
     FrameworksResTarget \
     LineageApertureAppCommon \
-    LineageSdkOverlayCommon \
     NcmTetheringOverlay \
     SettingsProviderResCommon \
     SystemUIResCommon \
@@ -405,3 +397,8 @@ TARGET_COMMON_QTI_COMPONENTS := \
 $(call inherit-product, vendor/motorola/sm6225-common/sm6225-common-vendor.mk)
 # Get non-open-source specific aspects
 $(call inherit-product, vendor/motorola/sm6225-common/sm6225-common-vendor.mk)
+
+# AOSPA's device/qcom/common ships its own generic ueventd.qcom.rc (installed as
+# vendor/etc/ueventd.rc). The device-specific one is renamed to ueventd.sm6225.rc,
+# so drop the generic package to avoid a duplicate install target.
+PRODUCT_PACKAGES := $(filter-out ueventd.qcom.rc,$(PRODUCT_PACKAGES))
