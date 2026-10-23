@@ -126,11 +126,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/media/media_codecs_vendor_v3.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_khaje.xml \
     $(LOCAL_PATH)/media/media_profiles_vendor.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_vendor.xml
 
-# MotoActions
-PRODUCT_PACKAGES += \
-    MotoActions \
-    MotoCommonOverlay
-
 # NFC
 PRODUCT_PACKAGES += \
     com.android.nfc_extras \
@@ -257,7 +252,6 @@ TARGET_COMMON_QTI_COMPONENTS := \
     charging \
     display \
     dsprpcd \
-    init \
     keymaster \
     media \
     overlay \
